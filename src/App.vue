@@ -8,7 +8,7 @@
           <el-menu-item class="menu-right" index="2">消息中心</el-menu-item>
         </el-menu>
       </el-header>
-      <el-main style="height: calc(100vh - 60px);">
+      <el-main class="main">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -45,7 +45,9 @@ export default {
   .menu-right{
     float: right !important;
   }
-  .main, body, #app{
-    height: 100% !important;
+  .main{
+    height: calc(100vh - 60px);
+    width: 80%;
+    margin: 0 auto;
   }
 </style>
