@@ -2,10 +2,11 @@
   <div id="app">
     <el-container>
       <el-header>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu default-active="2" class="el-menu-demo" mode="horizontal">
           <el-menu-item><img src="./assets/logo.png" class="logo"/></el-menu-item>
-          <el-menu-item class="menu-right" index="1">登录 | 注册</el-menu-item>
-          <el-menu-item class="menu-right" index="2">消息中心</el-menu-item>
+          <el-menu-item class="menu-right" index="1" @click="goToSignIn">登录 | 注册</el-menu-item>
+          <el-menu-item class="menu-right" index="2" @click="goToNotificatioin">消息中心</el-menu-item>
+          <el-menu-item class="menu-right" index="3" @click="goToIndex">首页</el-menu-item>
         </el-menu>
       </el-header>
       <el-main class="main">
@@ -19,7 +20,16 @@
 
 export default {
   name: 'app',
-  components: {
+  methods:{
+    goToNotificatioin: function(){
+      this.$router.push('/notification');
+    },
+    goToSignIn: function(){
+      this.$router.push('/Signin');
+    },
+    goToIndex: function(){
+      this.$router.push('/');
+    }
   }
 }
 </script>
