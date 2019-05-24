@@ -10,6 +10,7 @@ import Signin from './components/Signin'
 import Signup from './components/Signup'
 import Board from './components/Board'
 import Notification from './components/Notification'
+import Thread from './components/Thread'
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -21,7 +22,8 @@ const routers = new VueRouter({
     { path: '/', component:Board},
     { path: '/signin', component: Signin },
     { path: '/signup', component: Signup },
-    { path: '/notification', component: Notification}
+    { path: '/notification', component: Notification},
+    { path: '/thread', component: Thread}
 
   ]
 });
