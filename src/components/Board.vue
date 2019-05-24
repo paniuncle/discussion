@@ -22,8 +22,8 @@
             <div class="post-button-box">
                 <span><el-button type="info" class="post-button" @click="dialogFormVisible = true"><i class="el-icon-edit"></i>发表帖子</el-button></span>
             </div>
-
         </div>
+
         <div class="board">
             <el-table
                     :data="postData"
