@@ -4,7 +4,7 @@
             <el-card class="register-card">
                 <el-form :model="form" :rules="rules" status-icon>
                     <el-form-item>
-                        <h1>注册</h1>
+                        <h1>注 册</h1>
                     </el-form-item>
                     <el-form-item prop="username">
                         <el-input placeholder="用户名" v-model="form.username"></el-input>
@@ -16,7 +16,7 @@
                         <el-input type="password" placeholder="确认密码" v-model="form.againPassword"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" :loading="signUpButton" @click="SignUp">注册</el-button>
+                        <el-button type="primary" :loading="signUpButton" @click="SignUp">注 册</el-button>
                     </el-form-item>
                     <el-form-item>
                         <el-link type="warning" :underline="false" @click="GoToSignIn">已经有账号了？去登录！</el-link>

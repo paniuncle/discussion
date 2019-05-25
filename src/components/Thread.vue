@@ -21,9 +21,18 @@
             </div>
         </div>
 
-        <div class="button-group">
-
+        <div class="reply-list">
+            <el-card class="box-card">
+                <div class="user-info-box">
+                    <el-image style="width: 100px; height: 100px" :src="url" fit="cover"></el-image>
+                    <p>帕尼</p>
+                </div>
+                <div class="comment-box">
+                    <p>asdjfsaio</p>
+                </div>
+            </el-card>
         </div>
+
         <div class="post-board">
             <el-dialog title="回复主题" :visible.sync="dialogFormVisible" class="dialog">
                 <el-form :model="reply" class="post-form">
@@ -46,7 +55,8 @@
     export default {
         name: "Thread",
         created(){
-            this.compiledMarkdown();
+            this.markedContent = this.compiledMarkdown(this.articleData.content);
+
             this.getUrl();
         },
         data(){
@@ -68,9 +78,8 @@
             }
         },
         methods:{
-            compiledMarkdown: function(){
-                window.console.log(marked(this.articleData.content, { sanitize: true }));
-                this.markedContent = marked(this.articleData.content, { sanitize: true });
+            compiledMarkdown: function(value){
+                return marked(value , { sanitize: true });
 
             },
             doReply: function(){
@@ -134,8 +143,19 @@
         font-size: 16px;
         margin-left: 10px;
     }
-    .button-group{
-
+    .box-card{
+        padding-bottom: 20px;
+    }
+    .user-info-box{
+        float: left;
+        text-align: center;
+        width:150px;
+        border-right: 1px solid #EBEEF5;
+    }
+    .comment-box{
+        float: left;
+        width: auto;
+        margin-left: 20px;
     }
 
 </style>

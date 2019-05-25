@@ -4,7 +4,7 @@
             <el-card class="login-card">
                 <el-form :model="form" :rules="rules">
                     <el-form-item>
-                        <h1>登录</h1>
+                        <h1>登 录</h1>
                     </el-form-item>
                     <el-form-item prop="username">
                         <el-input placeholder="用户名" v-model="form.username"></el-input>
@@ -13,7 +13,7 @@
                         <el-input type="password" placeholder="密码" v-model="form.password"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" :loading="signInButton" @click="SignIn">登录</el-button>
+                        <el-button type="primary" :loading="signInButton" @click="SignIn">登 录</el-button>
                     </el-form-item>
                     <el-form-item>
                         <el-link type="warning" :underline="false" @click="GoToSignUp">没有账号？去注册！</el-link>
