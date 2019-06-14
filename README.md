@@ -223,6 +223,7 @@ create table user_group
 
 ### 第七步 部署后端
 
+
 一定要将public目录作为网站部署的根目录
 
 
