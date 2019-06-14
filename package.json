@@ -11,9 +11,15 @@
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.4.5",
+    "infinite-scroll": "^3.0.6",
     "marked": "^0.6.2",
     "mavon-editor": "^2.7.4",
+    "qs": "^6.7.0",
     "vue": "^2.6.10",
+    "vue-axios": "^2.1.4",
+    "vue-cookie": "^1.1.4",
+    "vue-cookies": "^1.5.13",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.6"
   },
   "devDependencies": {

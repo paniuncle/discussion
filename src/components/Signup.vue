@@ -67,7 +67,46 @@
              * @return {boolean}
              */
             PostSignUp: function(){
-                return false;
+                const that = this;
+                this.axios.post(this.GLOBAL_API.apiUrl + 'Authenticate/signUp',{
+                    username: this.form.username,
+                    password: this.form.password
+                }).then(function(res){
+                    if(res.data.errcode === 2){
+                        that.$notify({
+                            title: '注册失败',
+                            message: '该用户名已经存在，请换一个用户名',
+                            type: 'error'
+                        });
+                        that.signUpButton = false;
+                    }else if(res.data.errcode === 0){
+                        that.$notify({
+                            title: '注册成功',
+                            message: '即将返回登录界面，请稍后',
+                            type: 'success'
+                        });
+                        that.$router.push('/signin');
+                    }else if(res.data.errcode === 1){
+                        that.$notify({
+                            title: '注册失败',
+                            message: '您的用户名、密码为空，必须填写',
+                            type: 'warning'
+                        });
+                        that.signUpButton = false;
+                    }else{
+                        that.$notify({
+                            type: "error",
+                            title: "登录失败",
+                            message: "服务器出现问题，请稍后再试"
+                        });
+                        that.signUpButton = false;
+                    }
+                })
+
+
+
+
+                //this.GLOBAL_API.apiUrl;
             },
             SignUp: function(){
                 this.signUpButton = true;

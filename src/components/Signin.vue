@@ -51,7 +51,53 @@
              * @return {boolean}
              */
             PostSignIn: function(){
-                return false;
+                const that = this;
+                this.axios.post(this.GLOBAL_API.apiUrl + 'Authenticate/signIn', {
+                    username: this.form.username,
+                    password: this.form.password
+                }).then(function(res){
+                    if(res.data.errcode === 0){
+                        that.$notify({
+                            type: "success",
+                            title: "登录成功",
+                            message: "账号密码一致，即将为您跳转至首页"
+                        });
+                        that.$cookies.set('uid', res.data.uid, 60*60*24);
+                        that.$cookies.set('session', res.data.session, 60*60*24);
+                        that.$cookies.set('username', res.data.username, 60*60*24);
+                        that.$router.push('/');
+
+                    }else if(res.data.errcode === 1){
+                        that.$notify({
+                            type: "warning",
+                            title: "登录失败",
+                            message: "用户名或者密码为空，请重新填写"
+                        });
+                        that.signInButton = false;
+                    }else if(res.data.errcode === 3){
+                        that.$notify({
+                            type: "warning",
+                            title: "登录失败",
+                            message: "该用户不存在，请先注册"
+                        });
+                        that.signInButton = false;
+                    }else if(res.data.errcode === 4){
+                        that.$notify({
+                            type: "warning",
+                            title: "登录失败",
+                            message: "用户名和密码不一致，请重新输入"
+                        });
+                        that.signInButton = false;
+                    }else{
+                        that.$notify({
+                            type: "error",
+                            title: "登录失败",
+                            message: "服务器出现问题，请稍后再试"
+                        });
+                        that.signInButton = false;
+
+                    }
+                })
             },
             SignIn: function(){
                 this.signInButton = true;
