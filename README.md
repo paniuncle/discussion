@@ -133,7 +133,93 @@ return [
 ```
 
 #### 导入sql文件
-将后端中的database.sql 导入到数据库中
+将本文本复制
+```
+
+create schema discussion collate utf8_general_ci;
+
+create table comment
+(
+	cid int auto_increment
+		primary key,
+	tid int null,
+	uid int null,
+	create_time datetime null,
+	status int default 0 null
+);
+
+create table comment_content
+(
+	cid int not null
+		primary key,
+	content longtext null
+);
+
+create table division
+(
+	did int auto_increment
+		primary key,
+	parent int default 0 null,
+	nodes int null,
+	name varchar(255) null,
+	`desc` varchar(255) null,
+	status int default 0 null
+);
+
+create table session
+(
+	uid int not null
+		primary key,
+	session varchar(255) null,
+	timeout datetime null
+);
+
+create table thread
+(
+	tid int auto_increment
+		primary key,
+	division int null,
+	title varchar(255) null,
+	view int null,
+	reply int null,
+	uid int null,
+	active_time datetime null,
+	status int default 0 null
+);
+
+create table thread_content
+(
+	tid int not null
+		primary key,
+	content longtext null
+);
+
+create table user
+(
+	uid int auto_increment
+		primary key,
+	username varchar(22) null,
+	password varchar(36) null,
+	salt varchar(6) null,
+	email varchar(255) null,
+	avatar varchar(255) null,
+	`group` int default 1 null,
+	reg_time datetime null,
+	status int(1) default 0 null
+);
+
+create table user_group
+(
+	gid int auto_increment
+		primary key,
+	name varchar(255) null,
+	super int default 0 null,
+	moderator int default 0 null,
+	division int default 0 null
+);
+
+
+```
 
 ### 第七步 部署后端
 
