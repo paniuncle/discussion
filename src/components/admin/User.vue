@@ -24,6 +24,7 @@
                 :data="userData"
                 style="width: 100%;height: 100%;"
                 :row-class-name="tableRowClassName"
+                v-loading="loadingStatus"
                 >
             <el-table-column
                     label="UID"
@@ -111,6 +112,7 @@
         },
         data(){
             return {
+                loadingStatus: true,
                 userData:[
                 ],
                 formData:{
@@ -285,6 +287,7 @@
                             }
                         }
                         that.userData = res.data.userlist;
+                        that.loadingStatus = false;
 
 
                     }
@@ -292,6 +295,7 @@
                 })
             },
             searchUserList: function(){
+                this.loadingStatus = true;
                 window.console.log(this.formData);
                 const that = this;
                 this.axios.post(this.GLOBAL_API.apiUrl + 'AdminBoard/getUserList',
@@ -319,6 +323,7 @@
                             }
                         }
                         that.userData = res.data.userlist;
+                        that.loadingStatus = false;
 
 
                     }
