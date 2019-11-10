@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-const BACKEND_URL = "http://localhost:8888/index.php/api/";
+const BACKEND_URL = "https://forum.panicard.com/index.php?s=/api/";
 
 export default {
     apiUrl: BACKEND_URL

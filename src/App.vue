@@ -31,7 +31,7 @@ export default {
       username: null,
       uid: null,
       session: null,
-      avatarURL: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar?uid='
+      avatarURL: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar&uid='
     }
   },
   created(){
@@ -86,6 +86,12 @@ export default {
     color: #2c3e50;
     padding: 0;
     margin: 0;
+    -o-user-select: none;
+    -moz-user-select: none; /*火狐 firefox*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10+*/
+    -khtml-user-select :none; /*早期的浏览器*/
+    user-select: none;
   }
   .el-header{
     padding:0 !important;

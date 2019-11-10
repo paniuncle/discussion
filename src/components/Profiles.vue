@@ -52,7 +52,7 @@
                 }
             };
             return {
-                imageUrl: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar?uid=' + this.$cookies.get('uid'),
+                imageUrl: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar&uid=' + this.$cookies.get('uid'),
                 form:{
                     password: '',
                     againPassword: ''
@@ -85,7 +85,7 @@
                     type: "success",
                     message: "修改头像成功！"
                 });
-                this.imageUrl = this.GLOBAL_API.apiUrl + 'Profiles/getAvatar?uid=' + this.$cookies.get('uid') + '&nonce=' + Math.floor(Math.random()*10+1);
+                this.imageUrl = this.GLOBAL_API.apiUrl + 'Profiles/getAvatar&uid=' + this.$cookies.get('uid') + '&nonce=' + Math.floor(Math.random()*10+1);
 
             },
             beforeAvatarUpload: function(file) {

@@ -123,7 +123,7 @@
                     division: []
 
                 },
-                avatarURL: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar?uid='
+                avatarURL: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar&uid='
             }
         },
         created(){

@@ -39,7 +39,7 @@ module.exports = {
         // 配置多个代理
         proxy: {
             "/": {
-                target: "http://localhost:8888",
+                target: "https://forum.panicard.com",
                 ws: false,
                 changeOrigin: true
             }

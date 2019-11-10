@@ -79,7 +79,7 @@
                 userAvatar: '',
                 page: 1,
                 replyList:[],
-                apiAvatar: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar?uid=',
+                apiAvatar: this.GLOBAL_API.apiUrl + 'Profiles/getAvatar&uid=',
                 toolbars: {
                     bold: true, // 粗体
                     italic: true, // 斜体
@@ -255,7 +255,7 @@
                         that.articleData.content = res.data.thread.content.content;
                         that.markedContent = that.compiledMarkdown(that.articleData.content);
                         that.getDivision();
-                        that.userAvatar = that.GLOBAL_API.apiUrl + 'Profiles/getAvatar?uid=' + that.articleData.base.uid;
+                        that.userAvatar = that.GLOBAL_API.apiUrl + 'Profiles/getAvatar&uid=' + that.articleData.base.uid;
                         that.getComment();
                     }
                 })
