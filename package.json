@@ -14,7 +14,7 @@
     "infinite-scroll": "^3.0.6",
     "marked": "^0.7.0",
     "mavon-editor": "^2.7.4",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-cookie": "^1.1.4",
